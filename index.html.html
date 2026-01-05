@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For  Tanhu 🤍</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg1:#05070f;
+  --bg2:#0e1330;
+  --bg3:#1a2055;
+  --glass:rgba(255,255,255,.14);
+  --border:rgba(255,255,255,.25);
+  --text:#f8f9ff;
+  --muted:rgba(255,255,255,.65);
+  --accent1:#ff7bbf;
+  --accent2:#7aa2ff;
+  --ease:cubic-bezier(.22,.9,.3,1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+html,body{
+  height:100%;
+  font-family:'Patrick Hand',cursive;
+  background:
+    radial-gradient(circle at top,var(--bg3),var(--bg1)),
+    linear-gradient(180deg,var(--bg2),var(--bg1));
+  color:var(--text);
+  overflow:hidden;
+}
+
+/* 🌌 animated glow background */
+body::before{
+  content:"";
+  position:fixed;
+  inset:-50%;
+  background:
+    radial-gradient(circle at 20% 20%,rgba(255,255,255,.08),transparent 40%),
+    radial-gradient(circle at 80% 80%,rgba(255,255,255,.06),transparent 40%);
+  animation:breath 18s ease-in-out infinite;
+}
+@keyframes breath{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.18)}
+}
+
+/* ✨ floating emojis */
+.float span{
+  position:absolute;
+  bottom:-10vh;
+  font-size:20px;
+  opacity:.6;
+  animation:floatUp 18s linear infinite;
+}
+@keyframes floatUp{
+  from{transform:translateY(0) scale(.8);opacity:0}
+  to{transform:translateY(-120vh) scale(1.2);opacity:.9}
+}
+
+/* screens */
+.screen{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:22px;
+  opacity:0;
+  transform:translateY(80px) scale(.94);
+  filter:blur(10px);
+  transition:1.2s var(--ease);
+  pointer-events:none;
+}
+.screen.active{
+  opacity:1;
+  transform:none;
+  filter:none;
+  pointer-events:auto;
+}
+
+/* 💎 glass card */
+.card{
+  width:100%;
+  max-width:420px;
+  padding:36px 28px;
+  border-radius:30px;
+  background:linear-gradient(180deg,rgba(255,255,255,.18),rgba(255,255,255,.04));
+  border:1px solid var(--border);
+  backdrop-filter:blur(18px);
+  box-shadow:0 40px 100px rgba(0,0,0,.55);
+  text-align:center;
+  animation:cardGlow 4s ease-in-out infinite alternate;
+}
+@keyframes cardGlow{
+  from{box-shadow:0 30px 80px rgba(0,0,0,.4)}
+  to{box-shadow:0 40px 110px rgba(255,255,255,.15)}
+}
+
+/* typing text */
+.text{
+  font-size:22px;
+  line-height:1.7;
+  min-height:1.7em;
+}
+.big{
+  font-size:30px;
+  font-family:'Dancing Script',cursive;
+}
+.small{
+  margin-top:14px;
+  font-size:16px;
+  opacity:.75;
+}
+
+/* 💖 button */
+.btn{
+  margin-top:28px;
+  padding:14px 38px;
+  border-radius:40px;
+  border:none;
+  font-family:inherit;
+  font-size:18px;
+  background:linear-gradient(135deg,var(--accent1),var(--accent2));
+  color:#fff;
+  cursor:pointer;
+  transition:.3s;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:scale(.92)}
+
+/* 🧸 sticker */
+.sticker{
+  width:120px;
+  height:120px;
+  margin:0 auto 20px;
+  padding:6px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--accent1),var(--accent2));
+  animation:pulse 2.5s infinite;
+}
+@keyframes pulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.08)}
+}
+.sticker img{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+/* 🎉 confetti */
+.confetti{
+  position:fixed;
+  top:-10px;
+  font-size:20px;
+  animation:fall linear forwards;
+}
+@keyframes fall{
+  to{
+    transform:translateY(120vh) rotate(720deg);
+    opacity:0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- floating -->
+<div class="float">
+  <span style="left:10%">✨</span>
+  <span style="left:30%;animation-delay:3s">🌸</span>
+  <span style="left:50%;animation-delay:6s">🤍</span>
+  <span style="left:70%;animation-delay:2s">🎂</span>
+  <span style="left:90%;animation-delay:5s">🎈</span>
+</div>
+
+<!-- screens -->
+<div class="screen active">
+  <div class="card">
+    <div class="text" data-text="Hey Tanha 🤍"></div>
+    <div class="text" data-text="Today is a very special day ✨"></div>
+    <div class="small">5 January 🌸</div>
+    <button class="btn" onclick="next()">Next 🎂</button>
+  </div>
+</div>
+
+<div class="screen">
+  <div class="card">
+    <div class="text" data-text="On this day,"></div>
+    <div class="text" data-text="our little sunshine was born ☀️"></div>
+    <div class="text" data-text="and filled our lives with joy 🤍"></div>
+    <button class="btn" onclick="next()">Next ✨</button>
+  </div>
+</div>
+
+<div class="screen">
+  <div class="card">
+    <div class="text" data-text="I may not say it every day…"></div>
+    <div class="text" data-text="but I’m really proud of you 🤍"></div>
+    <div class="text" data-text="your smile means everything 🌙"></div>
+    <button class="btn" onclick="next()">Next 🤍</button>
+  </div>
+</div>
+
+<div class="screen">
+  <div class="card">
+    <div class="text" data-text="Never stop smiling 😄"></div>
+    <div class="text" data-text="Never stop dreaming 🌈"></div>
+    <div class="text" data-text="You are deeply loved 🤍"></div>
+    <button class="btn" onclick="next()">Next 🎁</button>
+  </div>
+</div>
+
+<div class="screen">
+  <div class="card">
+    <div class="sticker">
+      <img src="https://i.pravatar.cc/300?img=31">
+    </div>
+    <div class="text big" data-text="Happy Birthday, Tanha 🎂🤍"></div>
+    <div class="text" data-text="May your life be full of happiness ✨"></div>
+    <div class="small">Always with you 🤍</div>
+  </div>
+</div>
+
+<script>
+const screens=document.querySelectorAll('.screen');
+let index=0;
+
+function typeText(el){
+  const text=el.dataset.text;
+  let i=0;
+  el.textContent="";
+  const timer=setInterval(()=>{
+    el.textContent+=text[i];
+    i++;
+    if(i>=text.length) clearInterval(timer);
+  },45);
+}
+
+function runTyping(screen){
+  screen.querySelectorAll('.text').forEach((t,i)=>{
+    setTimeout(()=>typeText(t),i*600);
+  });
+}
+
+runTyping(screens[0]);
+
+function next(){
+  screens[index].classList.remove('active');
+  index++;
+  if(index<screens.length){
+    screens[index].classList.add('active');
+    runTyping(screens[index]);
+    if(index===screens.length-1) confetti();
+  }
+}
+
+function confetti(){
+  const emojis=["✨","🌸","🎂","🤍","🎈"];
+  for(let i=0;i<30;i++){
+    const c=document.createElement("div");
+    c.className="confetti";
+    c.innerText=emojis[Math.floor(Math.random()*emojis.length)];
+    c.style.left=Math.random()*100+"vw";
+    c.style.animationDuration=(3+Math.random()*4)+"s";
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),7000);
+  }
+}
+</script>
+
+</body>
+</html>
